@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17.414" viewBox="0 0 16 17.414">
-  <g id="chevron-icon" transform="translate(0 16.707) rotate(-90)">
-    <rect id="Area" width="16" height="16" fill="none" opacity="0"/>
-    <g id="Icon" transform="translate(2.5 1.667)">
-      <path id="_75b10f86-c250-4c3b-9061-cf2523948af1" data-name="75b10f86-c250-4c3b-9061-cf2523948af1" d="M8,12l8,8,8-8" transform="translate(-10.5 -9.667)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17.414" viewBox="0 0 16 17.414"><g id="chevron-icon" transform="translate(0 16.707) rotate(-90)"><rect id="Area" width="16" height="16" fill="none" opacity="0"/><g id="Icon" transform="translate(2.5 1.667)"><path id="_75b10f86-c250-4c3b-9061-cf2523948af1" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8,12l8,8,8-8" data-name="75b10f86-c250-4c3b-9061-cf2523948af1" transform="translate(-10.5 -9.667)"/></g></g></svg>

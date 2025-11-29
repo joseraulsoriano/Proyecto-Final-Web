@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="166" height="49" viewBox="0 0 166 49">
-  <g id="_4-gana-titulo" data-name="4-gana-titulo" transform="translate(-58 -292)">
-    <text id="_Label" data-name="✏️ Label" transform="translate(79 329)" fill="#cd0000" font-size="48" font-family="AvenirNextLTPro-Bold, Avenir Next LT Pro" font-weight="700"><tspan x="0" y="0">GANA</tspan></text>
-    <text id="_Label-2" data-name="✏️ Label" transform="translate(58 310)" fill="#cd0000" font-size="24" font-family="AvenirNextLTPro-DemiIt, Avenir Next LT Pro" font-weight="300" font-style="italic"><tspan x="0" y="0">4</tspan></text>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="166" height="49" viewBox="0 0 166 49"><g id="_4-gana-titulo" data-name="4-gana-titulo" transform="translate(-58 -292)"><text id="_Label" fill="#cd0000" data-name="✏️ Label" font-family="AvenirNextLTPro-Bold, Avenir Next LT Pro" font-size="48" font-weight="700" transform="translate(79 329)"><tspan x="0" y="0">GANA</tspan></text><text id="_Label-2" fill="#cd0000" data-name="✏️ Label" font-family="AvenirNextLTPro-DemiIt, Avenir Next LT Pro" font-size="24" font-style="italic" font-weight="300" transform="translate(58 310)"><tspan x="0" y="0">4</tspan></text></g></svg>

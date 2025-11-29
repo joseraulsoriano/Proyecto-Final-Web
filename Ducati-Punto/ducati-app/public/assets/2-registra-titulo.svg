@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="179" height="35" viewBox="0 0 179 35">
-  <g id="_2-registra-titulo" data-name="2-registra-titulo" transform="translate(-59 -294)">
-    <text id="_Label" data-name="✏️ Label" transform="translate(80 321)" font-size="32" font-family="AvenirNextLTPro-Bold, Avenir Next LT Pro" font-weight="700"><tspan x="0" y="0">REGISTRA</tspan></text>
-    <text id="_Label-2" data-name="✏️ Label" transform="translate(59 312)" fill="#cd0000" font-size="24" font-family="AvenirNextLTPro-DemiIt, Avenir Next LT Pro" font-weight="300" font-style="italic"><tspan x="0" y="0">2</tspan></text>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="179" height="35" viewBox="0 0 179 35"><g id="_2-registra-titulo" data-name="2-registra-titulo" transform="translate(-59 -294)"><text id="_Label" data-name="✏️ Label" font-family="AvenirNextLTPro-Bold, Avenir Next LT Pro" font-size="32" font-weight="700" transform="translate(80 321)"><tspan x="0" y="0">REGISTRA</tspan></text><text id="_Label-2" fill="#cd0000" data-name="✏️ Label" font-family="AvenirNextLTPro-DemiIt, Avenir Next LT Pro" font-size="24" font-style="italic" font-weight="300" transform="translate(59 312)"><tspan x="0" y="0">2</tspan></text></g></svg>
