@@ -1,9 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14.828" viewBox="0 0 14 14.828">
-  <g id="flecha-icon" transform="translate(1 1.414)">
-    <rect id="Area" width="12" height="12" fill="#fcfcfc" opacity="0"/>
-    <g id="Icon" transform="translate(1.29 2.499)">
-      <line id="d2074b10-b890-4fe7-abce-d4d06263c762" x2="12" transform="translate(-1.29 3.501)" fill="none" stroke="#cd0000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-      <path id="f8f67722-e326-43b2-ada9-ff8229761e35" d="M10.286,4.286l6,6-6,6" transform="translate(-5.576 -6.785)" fill="none" stroke="#cd0000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14.828" viewBox="0 0 14 14.828"><g id="flecha-icon" transform="translate(1 1.414)"><rect id="Area" width="12" height="12" fill="#fcfcfc" opacity="0"/><g id="Icon" transform="translate(1.29 2.499)"><line id="d2074b10-b890-4fe7-abce-d4d06263c762" x2="12" fill="none" stroke="#cd0000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(-1.29 3.501)"/><path id="f8f67722-e326-43b2-ada9-ff8229761e35" fill="none" stroke="#cd0000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.286,4.286l6,6-6,6" transform="translate(-5.576 -6.785)"/></g></g></svg>

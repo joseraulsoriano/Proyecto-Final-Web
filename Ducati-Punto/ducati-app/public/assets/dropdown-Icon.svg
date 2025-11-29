@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="17.414" height="16" viewBox="0 0 17.414 16">
-  <g id="dropdown-Icon" transform="translate(0.707)">
-    <rect id="Area" width="16" height="16" fill="none" opacity="0"/>
-    <g id="Icon" transform="translate(0 4)">
-      <path id="_75b10f86-c250-4c3b-9061-cf2523948af1" data-name="75b10f86-c250-4c3b-9061-cf2523948af1" d="M8,12l8,8,8-8" transform="translate(-8 -12)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="17.414" height="16" viewBox="0 0 17.414 16"><g id="dropdown-Icon" transform="translate(0.707)"><rect id="Area" width="16" height="16" fill="none" opacity="0"/><g id="Icon" transform="translate(0 4)"><path id="_75b10f86-c250-4c3b-9061-cf2523948af1" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8,12l8,8,8-8" data-name="75b10f86-c250-4c3b-9061-cf2523948af1" transform="translate(-8 -12)"/></g></g></svg>
