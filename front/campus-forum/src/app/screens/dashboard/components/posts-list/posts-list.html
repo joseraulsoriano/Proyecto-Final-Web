@@ -1,0 +1,128 @@
+<div class="posts-section">
+  <div class="section-header">
+    <h2>{{ showArchived ? 'Posts Archivados' : (showMyPosts ? 'Mis Posts' : 'Posts Recientes') }}</h2>
+    @if (!showArchived) {
+      <button class="btn-primary" (click)="goToCreatePost()" [disabled]="loading">
+        + Nuevo Post
+      </button>
+    }
+  </div>
+
+  @if (error) {
+    <div class="error-alert">
+      {{ error }}
+    </div>
+  }
+
+  @if (loading) {
+    <div class="loading">Cargando posts...</div>
+  } @else if (!posts || posts.length === 0) {
+    <div class="empty-state">
+      <p>{{ showArchived ? 'No hay posts archivados' : 'No hay posts disponibles' }}</p>
+      @if (!showArchived) {
+        <button class="btn-primary" (click)="goToCreatePost()">Crear primer post</button>
+      }
+    </div>
+  } @else {
+    <div class="posts-list">
+      @for (post of posts; track post.id) {
+        <div class="post-card" [class.archived]="post.status === 'ARCHIVED'">
+          @if (post.status === 'ARCHIVED') {
+            <div class="archived-banner">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                <rect x="1" y="3" width="22" height="5"></rect>
+                <line x1="10" y1="12" x2="14" y2="12"></line>
+              </svg>
+              <span>Este post está archivado</span>
+            </div>
+          }
+          <div class="post-header">
+            <div class="post-category">
+              <span class="badge badge-category">{{ post.category.name }}</span>
+            </div>
+            @if (canModifyPost(post)) {
+              <div class="post-actions">
+                @if (post.status === 'DRAFT') {
+                  <button class="btn-small btn-success" (click)="publishPost(post.id)" title="Publicar">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 20V10"></path>
+                      <path d="M12 20V4"></path>
+                      <path d="M6 20v-6"></path>
+                    </svg>
+                    Publicar
+                  </button>
+                }
+                @if (post.status === 'PUBLISHED') {
+                  <button class="btn-small btn-warning" (click)="archivePost(post.id)" title="Archivar">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                      <rect x="1" y="3" width="22" height="5"></rect>
+                      <line x1="10" y1="12" x2="14" y2="12"></line>
+                    </svg>
+                    Archivar
+                  </button>
+                }
+                @if (post.status === 'ARCHIVED') {
+                  <button class="btn-small btn-success" (click)="restorePost(post.id)" title="Restaurar">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Restaurar
+                  </button>
+                }
+                <button class="btn-icon btn-danger" (click)="deletePost(post.id)" title="Eliminar">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                </button>
+              </div>
+            }
+          </div>
+
+          <h3 class="post-title" (click)="goToPostDetail(post.id)">
+            {{ post.title }}
+          </h3>
+
+          <p class="post-content">{{ truncateContent(post.content) }}</p>
+
+          @if (post.tags && post.tags.length > 0) {
+            <div class="post-tags">
+              @for (tag of post.tags; track tag.id) {
+                <span class="tag">{{ tag.name }}</span>
+              }
+            </div>
+          }
+
+          <div class="post-footer">
+            <div class="post-author-info">
+              <span class="author-name">{{ post.author.full_name }}</span>
+              <span class="post-date">{{ formatDate(post.created_at) }}</span>
+            </div>
+            <div class="post-stats">
+              <span class="badge" [class]="getStatusBadgeClass(post.status)">
+                {{ post.status }}
+              </span>
+              <span class="comment-count">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                {{ post.comments_count || 0 }}
+              </span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>
+
+<app-confirm-delete-post
+  [isOpen]="showDeleteModal"
+  [postTitle]="selectedPostTitle"
+  (confirm)="confirmDelete()"
+  (cancel)="closeDeleteModal()">
+</app-confirm-delete-post>
+

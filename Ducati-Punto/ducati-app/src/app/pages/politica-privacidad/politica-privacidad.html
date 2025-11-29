@@ -1,0 +1,61 @@
+<div class="legal-container">
+  <header class="header">
+    <button class="menu-button" (click)="toggleSidebar()" aria-label="Abrir menú">
+      <img src="/assets/menu-icon.svg" alt="Menú" class="menu-icon" />
+    </button>
+    <div class="header-content">
+      <span class="carrera">CARRERA</span>
+      <span class="divider">|</span>
+      <span class="ducati">DUCATI</span>
+    </div>
+    <div class="header-spacer"></div>
+  </header>
+
+  <app-sidebar [isOpen]="sidebarOpen" [isLoggedIn]="isLoggedIn" (closeSidebar)="closeSidebar()"></app-sidebar>
+
+  <main class="content">
+    <!-- Título con línea roja -->
+    <div class="title-section">
+      <img src="/assets/titulo-shape.svg" alt="" class="title-shape" />
+      <h1 class="title">POLÍTICA DE PRIVACIDAD</h1>
+    </div>
+    
+    <!-- Contenido Lorem ipsum -->
+    <div class="content-text">
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      </p>
+      <p>
+        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+      </p>
+      <p>
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+      </p>
+      <p>
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a routerLink="/politica-privacidad" class="footer-link">POLÍTICA DE PRIVACIDAD</a>
+      <a routerLink="/terminos-condiciones" class="footer-link terms-link">TÉRMINOS Y CONDICIONES</a>
+    </div>
+    <div class="footer-copyright">
+      <p>CARRERA EYEWEAR © 2022</p>
+      <div class="footer-logo">
+        <div class="logo-bar black"></div>
+        <div class="logo-bar red"></div>
+        <div class="logo-bar black"></div>
+      </div>
+    </div>
+  </footer>
+</div>

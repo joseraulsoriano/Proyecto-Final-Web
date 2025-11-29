@@ -1,0 +1,87 @@
+<div class="login-container">
+  <!-- Header con CARRERA y DUCATI -->
+  <header class="header">
+    <div class="header-content">
+      <span class="carrera">CARRERA</span>
+      <span class="divider">|</span>
+      <span class="ducati">DUCATI</span>
+    </div>
+  </header>
+
+  <!-- Sección principal con imagen y texto promocional -->
+  <div class="promo-section">
+    <div class="promo-content">
+      <div class="promo-text">
+        <div class="promo-line">
+          <span class="word-black">COMPRA</span>
+          <span class="word-black">ACELERA</span>
+        </div>
+        <div class="promo-line">
+          <span class="word-small">y</span>
+          <span class="word-small">GANA</span>
+          <span class="word-small">con</span>
+        </div>
+        <div class="promo-line">
+          <span class="word-red">CARRERA</span>
+        </div>
+      </div>
+      <div class="graphic-bar"></div>
+    </div>
+  </div>
+
+  <!-- Formulario de login -->
+  <div class="login-form-container">
+    <h1 class="login-title">INICIO DE SESIÓN</h1>
+    
+    <form (ngSubmit)="onLogin()" class="login-form">
+      <div class="input-group">
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Correo electrónico"
+          class="form-input"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Contraseña"
+          class="form-input"
+          required
+        />
+        <button
+          type="button"
+          class="password-toggle"
+          (click)="togglePasswordVisibility()"
+          aria-label="Mostrar/Ocultar contraseña"
+        >
+          <span class="eye-icon">{{ showPassword ? '👁️' : '👁️‍🗨️' }}</span>
+        </button>
+      </div>
+
+      <a routerLink="/politica-privacidad" class="forgot-password">
+        Recupera tu contraseña
+      </a>
+
+      <button type="submit" class="login-button">
+        INGRESAR
+      </button>
+    </form>
+  </div>
+
+  <!-- Footer con registro -->
+  <div class="register-footer">
+    <p>
+      ¿Aún no tienes una cuenta?
+      <a routerLink="/registrar-cuenta" class="register-link">Regístrate</a>
+    </p>
+  </div>
+
+  <!-- Barra gráfica inferior -->
+  <div class="bottom-graphic"></div>
+</div>

@@ -1,0 +1,114 @@
+<div class="bases-container">
+  <header class="header">
+    <button class="menu-button" (click)="toggleSidebar()" aria-label="Abrir menú">
+      <img src="/assets/menu-icon.svg" alt="Menú" class="menu-icon" />
+    </button>
+    <div class="header-content">
+      <span class="carrera">CARRERA</span>
+      <span class="divider">|</span>
+      <span class="ducati">DUCATI</span>
+    </div>
+    <div class="header-spacer"></div>
+  </header>
+
+  <app-sidebar [isOpen]="sidebarOpen" [isLoggedIn]="true" (closeSidebar)="closeSidebar()"></app-sidebar>
+
+  <!-- Banner rojo con texto de licencia -->
+  <div class="license-banner">
+    <p>Ducati Motor Holding S.p.A. Official Licensed Product</p>
+  </div>
+
+  <!-- Imagen hero de gafas -->
+  <div class="hero-image-section">
+    <img src="/assets/login-img.png" alt="CARRERA DUCATI" class="hero-image" />
+  </div>
+
+  <main class="content">
+    <!-- Título con línea roja -->
+    <div class="title-section">
+      <img src="/assets/titulo-shape.svg" alt="" class="title-shape" />
+      <h1 class="title">BASES DE LA PROMOCIÓN</h1>
+    </div>
+    
+    <!-- Pasos de la promoción -->
+    <div class="steps-section">
+      <!-- Paso 1: COMPRA -->
+      <div class="step-item">
+        <div class="step-header">
+          <img src="/assets/1-compra-titulo.svg" alt="1 COMPRA" class="step-title-img" />
+        </div>
+        <div class="step-content">
+          <p class="step-text">
+            productos participantes <span class="brand-red">CARRERA</span> | <span class="brand-red">DUCATI</span> en Liverpool/Devlyn
+          </p>
+        </div>
+      </div>
+
+      <!-- Paso 2: REGISTRA -->
+      <div class="step-item">
+        <div class="step-header">
+          <img src="/assets/2-registra-titulo.svg" alt="2 REGISTRA" class="step-title-img" />
+        </div>
+        <div class="step-content">
+          <p class="step-text">
+            todos tus códigos en el sitio <span class="website-bold">www.acelerayganaconcarrera.com.mx</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Paso 3: ACUMULA -->
+      <div class="step-item">
+        <div class="step-header">
+          <img src="/assets/3-acumula-titulo.svg" alt="3 ACUMULA" class="step-title-img" />
+        </div>
+        <div class="step-content">
+          <p class="step-text">
+            puntos con cada compra y juega por puntos extras
+          </p>
+        </div>
+      </div>
+
+      <!-- Paso 4: GANA -->
+      <div class="step-item">
+        <div class="step-header">
+          <img src="/assets/4-gana-titulo.svg" alt="4 GANA" class="step-title-img" />
+        </div>
+        <div class="step-content">
+          <p class="step-text">
+            Una <span class="moto-bold">Moto Ducati</span> al finalizar la promoción
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imagen de la moto -->
+    <div class="moto-section">
+      <img src="/assets/moto.png" alt="Ducati Scrambler" class="moto-image" />
+    </div>
+
+    <!-- Texto placeholder -->
+    <div class="placeholder-text">
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.</p>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a routerLink="/politica-privacidad" class="footer-link">POLÍTICA DE PRIVACIDAD</a>
+      <a routerLink="/terminos-condiciones" class="footer-link">TÉRMINOS Y CONDICIONES</a>
+    </div>
+    <div class="footer-copyright">
+      <p>CARRERA EYEWEAR © 2022</p>
+      <div class="footer-logo">
+        <div class="logo-bar black"></div>
+        <div class="logo-bar red"></div>
+        <div class="logo-bar black"></div>
+      </div>
+    </div>
+  </footer>
+</div>

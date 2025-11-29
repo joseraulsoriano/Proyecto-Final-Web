@@ -1,0 +1,85 @@
+<div class="statistics-panel">
+  <h2>Estadísticas de la Plataforma</h2>
+
+  @if (error) {
+    <div class="error-alert">{{ error }}</div>
+  }
+
+  @if (loading) {
+    <div class="loading">Cargando estadísticas...</div>
+  } @else if (stats) {
+    <!-- Estadísticas generales -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">{{ stats.general.total_posts }}</div>
+        <div class="stat-label">Posts Publicados</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{{ stats.general.total_comments }}</div>
+        <div class="stat-label">Comentarios</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{{ stats.general.total_users }}</div>
+        <div class="stat-label">Usuarios Activos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">{{ stats.general.recent_posts_week }}</div>
+        <div class="stat-label">Posts esta Semana</div>
+      </div>
+    </div>
+
+    <!-- Top Posters -->
+    @if (stats.top_posters.length > 0) {
+      <div class="stats-section">
+        <h3>Usuarios Más Activos</h3>
+        <div class="list-card">
+          @for (poster of stats.top_posters; track poster.id) {
+            <div class="list-item">
+              <div class="item-info">
+                <strong>{{ poster.full_name }}</strong>
+                <span class="item-email">{{ poster.email }}</span>
+              </div>
+              <span class="item-count">{{ poster.posts_count }} posts</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Posts por Categoría -->
+    @if (stats.posts_by_category.length > 0) {
+      <div class="stats-section">
+        <h3>Posts por Categoría</h3>
+        <div class="list-card">
+          @for (category of stats.posts_by_category; track category.id) {
+            <div class="list-item">
+              <div class="item-info">
+                <strong>{{ category.name }}</strong>
+              </div>
+              <span class="item-count">{{ category.posts_count }} posts</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Categorías Más Comentadas -->
+    @if (stats.categories_most_commented.length > 0) {
+      <div class="stats-section">
+        <h3>Categorías Más Comentadas</h3>
+        <div class="list-card">
+          @for (category of stats.categories_most_commented; track category.id) {
+            <div class="list-item">
+              <div class="item-info">
+                <strong>{{ category.name }}</strong>
+              </div>
+              <span class="item-count">{{ category.comments_count }} comentarios</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  }
+</div>
+
+

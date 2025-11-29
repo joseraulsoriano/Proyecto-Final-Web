@@ -1,0 +1,265 @@
+.bases-container {
+  width: 100%;
+  min-height: 740px;
+  max-width: 360px;
+  margin: 0 auto;
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.header {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon {
+  width: 22px;
+  height: 20px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.carrera,
+.ducati {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-accent);
+  font-family: sans-serif;
+}
+
+.divider {
+  color: var(--color-accent);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.header-spacer {
+  width: 40px;
+}
+
+/* Banner de licencia */
+.license-banner {
+  width: 100%;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.license-banner p {
+  margin: 0;
+}
+
+/* Imagen hero */
+.hero-image-section {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Contenido principal */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 16px;
+}
+
+/* Título con línea roja */
+.title-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.title-shape {
+  width: 4px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-secondary-main);
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.2;
+}
+
+/* Sección de pasos */
+.steps-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step-header {
+  width: 100%;
+}
+
+.step-title-img {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+}
+
+.step-content {
+  padding-left: 28px;
+}
+
+.step-text {
+  font-size: 14px;
+  color: var(--color-secondary-main);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.brand-red {
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+.website-bold {
+  font-weight: bold;
+  color: var(--color-secondary-main);
+}
+
+.moto-bold {
+  font-weight: bold;
+  color: var(--color-secondary-main);
+}
+
+/* Sección de la moto */
+.moto-section {
+  width: 100%;
+  margin: 32px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moto-image {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Texto placeholder */
+.placeholder-text {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-text p {
+  font-size: 14px;
+  color: var(--color-secondary-main);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  text-align: justify;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  padding: 20px;
+  background-color: var(--color-secondary-main);
+  color: var(--color-primary);
+  margin-top: auto;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.footer-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-copyright p {
+  color: var(--color-secondary-main);
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.logo-bar {
+  width: 8px;
+  height: 24px;
+
+  &.black {
+    background-color: var(--color-secondary-main);
+  }
+
+  &.red {
+    background-color: var(--color-accent);
+  }
+}

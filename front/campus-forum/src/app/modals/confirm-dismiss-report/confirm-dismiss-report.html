@@ -1,0 +1,29 @@
+@if (isOpen) {
+  <div class="modal-overlay" (click)="onBackdropClick()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Confirmar Descartar Reporte</h3>
+      </div>
+      
+      <div class="modal-body">
+        <p>¿Estás seguro de que quieres descartar este reporte?</p>
+        @if (reportType) {
+          <p class="report-info"><strong>Tipo:</strong> {{ reportType === 'POST' ? 'Publicación' : 'Comentario' }}</p>
+        }
+        @if (reportReason) {
+          <p class="report-reason-preview"><strong>Motivo:</strong> {{ reportReason }}</p>
+        }
+        <p class="warning-text">Esta acción marcará el reporte como descartado y no se podrá revertir.</p>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-danger" (click)="onConfirm()">
+          Descartar
+        </button>
+      </div>
+    </div>
+  </div>
+}

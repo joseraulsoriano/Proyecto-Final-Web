@@ -1,0 +1,132 @@
+<div class="inicio-container">
+  <header class="header">
+    <button class="menu-button" (click)="toggleSidebar()" aria-label="Abrir menú">
+      <img src="/assets/menu-icon.svg" alt="Menú" class="menu-icon" />
+    </button>
+    <div class="header-content">
+      <span class="carrera">CARRERA</span>
+      <span class="divider">|</span>
+      <span class="ducati">DUCATI</span>
+    </div>
+    <div class="header-spacer"></div>
+  </header>
+
+  <app-sidebar [isOpen]="sidebarOpen" [isLoggedIn]="true" (closeSidebar)="closeSidebar()"></app-sidebar>
+
+  <!-- Banner promocional -->
+  <div class="banner-section">
+    <div class="banner-content">
+      <div class="banner-left">
+        <img src="/assets/banner-img.png" alt="Ducati Scrambler" class="banner-moto" />
+      </div>
+      <div class="banner-right">
+        <div class="graphic-bar"></div>
+        <div class="promo-text">
+          <div class="promo-line">
+            <span class="word-black">COMPRA</span>
+            <span class="word-black">ACELERA</span>
+          </div>
+          <div class="promo-line">
+            <span class="word-small">y</span>
+            <span class="word-small">GANA</span>
+            <span class="word-small">con</span>
+          </div>
+          <div class="promo-line">
+            <span class="word-red">CARRERA</span>
+          </div>
+        </div>
+        <div class="banner-cta">
+          <p class="cta-text">Conoce cómo ganar una Ducati Scrambler</p>
+          <button class="saber-mas-button" (click)="saberMas()">
+            SABER MÁS
+            <img src="/assets/flecha-icon.svg" alt="→" class="flecha-icon" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Saludo al usuario -->
+  <div class="greeting-section">
+    <h2 class="greeting">Hola {{ nombreUsuario }}</h2>
+  </div>
+
+  <!-- Registro de código -->
+  <div class="code-register-section">
+    <h3 class="section-title">REGISTRA TU CÓDIGO</h3>
+    <div class="code-inputs">
+      <input
+        *ngFor="let digit of codigo; let i = index"
+        type="text"
+        [name]="'codigo-' + i"
+        [(ngModel)]="codigo[i]"
+        (input)="onCodeChange(i, $any($event.target).value)"
+        (keydown)="onKeyDown($event, i)"
+        class="code-input"
+        maxlength="1"
+        pattern="[0-9]"
+      />
+    </div>
+    <div class="store-dropdown-container">
+      <select [(ngModel)]="tiendaSeleccionada" name="tienda" class="store-dropdown">
+        <option *ngFor="let tienda of tiendas" [value]="tienda">{{ tienda }}</option>
+      </select>
+      <img src="/assets/dropdown-Icon.svg" alt="▼" class="dropdown-icon" />
+    </div>
+    <button class="register-button" (click)="onRegisterCode()">REGISTRAR</button>
+  </div>
+
+  <!-- Puntaje y Ranking -->
+  <div class="score-section">
+    <div class="score-box">
+      <p class="score-label">Haz acumulado</p>
+      <p class="score-value">{{ puntaje }}</p>
+      <p class="score-unit">puntos</p>
+    </div>
+    <div class="ranking-box">
+      <p class="ranking-label">Tu posición es</p>
+      <p class="ranking-value">{{ posicion }}</p>
+    </div>
+  </div>
+
+  <!-- Tabla de códigos registrados -->
+  <div class="codes-table-section">
+    <h3 class="section-title">CÓDIGOS REGISTRADOS</h3>
+    <div class="table-container">
+      <table class="codes-table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Código</th>
+            <th>Puntos totales</th>
+            <th>Puntos por código</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let codigo of codigosRegistrados">
+            <td>{{ codigo.fecha }}</td>
+            <td>{{ codigo.codigo }}</td>
+            <td>{{ codigo.puntosTotales }}</td>
+            <td>{{ codigo.puntosPorCodigo }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a routerLink="/politica-privacidad" class="footer-link">POLÍTICA DE PRIVACIDAD</a>
+      <a routerLink="/terminos-condiciones" class="footer-link">TÉRMINOS Y CONDICIONES</a>
+    </div>
+    <div class="footer-copyright">
+      <p>CARRERA EYEWEAR © 2022</p>
+      <div class="footer-logo">
+        <div class="logo-bar black"></div>
+        <div class="logo-bar red"></div>
+        <div class="logo-bar black"></div>
+      </div>
+    </div>
+  </footer>
+</div>

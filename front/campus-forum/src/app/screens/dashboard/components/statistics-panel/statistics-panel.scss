@@ -1,0 +1,114 @@
+.statistics-panel {
+  margin-top: 2rem;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary, #1e293b);
+    margin-bottom: 1.5rem;
+  }
+}
+
+.error-alert {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--danger-color, #dc2626);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+:root.dark .error-alert,
+[data-theme="dark"] .error-alert {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted, #64748b);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--bg-primary, white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.1));
+  border: 1px solid var(--border-color, #e2e8f0);
+  text-align: center;
+
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color, #2563eb);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: var(--text-muted, #64748b);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.stats-section {
+  margin-bottom: 2rem;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary, #1e293b);
+    margin-bottom: 1rem;
+  }
+}
+
+.list-card {
+  background: var(--bg-primary, white);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.1));
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    strong {
+      color: var(--text-primary, #1e293b);
+      font-weight: 500;
+    }
+
+    .item-email {
+      color: var(--text-muted, #64748b);
+      font-size: 0.875rem;
+    }
+  }
+
+  .item-count {
+    color: var(--primary-color, #2563eb);
+    font-weight: 600;
+  }
+}
+
+

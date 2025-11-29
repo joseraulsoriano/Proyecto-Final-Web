@@ -1,0 +1,130 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <h1>Mi Perfil</h1>
+    <button routerLink="/dashboard" class="btn-back">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      Volver
+    </button>
+  </div>
+
+  @if (user && profileForm) {
+    <div class="profile-content">
+      <!-- Información del usuario -->
+      <div class="profile-info-card">
+        <div class="profile-picture-section">
+          <div class="profile-picture-wrapper">
+            @if (previewUrl) {
+              <img [src]="previewUrl" alt="Foto de perfil" class="profile-picture" />
+            } @else {
+              <div class="profile-picture-placeholder">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+            }
+          </div>
+          <div class="picture-actions">
+            <label for="profile-picture-input" class="btn btn-secondary btn-small">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              Cambiar foto
+            </label>
+            <input
+              type="file"
+              id="profile-picture-input"
+              accept="image/*"
+              (change)="onFileSelected($event)"
+              style="display: none"
+            />
+            @if (selectedFile || (previewUrl && user.profile_picture)) {
+              <button type="button" class="btn btn-danger btn-small" (click)="removePhoto()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+                Eliminar
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="user-info">
+          <h2>{{ user.full_name }}</h2>
+          <p class="user-email">{{ user.email }}</p>
+          <span class="user-role">{{ getRoleLabel() }}</span>
+          <p class="user-joined">Miembro desde {{ user.date_joined | date:'longDate' }}</p>
+        </div>
+      </div>
+
+      <!-- Formulario de edición -->
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">
+        @if (error) {
+          <div class="error-alert">{{ error }}</div>
+        }
+
+        @if (success) {
+          <div class="success-alert">{{ success }}</div>
+        }
+
+        <div class="form-group">
+          <label for="first_name">Nombre *</label>
+          <input
+            type="text"
+            id="first_name"
+            formControlName="first_name"
+            class="form-control"
+            [class.invalid]="f['first_name']?.invalid && f['first_name']?.touched"
+          />
+          @if (f['first_name']?.invalid && f['first_name']?.touched) {
+            <div class="error-message">El nombre es obligatorio</div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="last_name">Apellidos *</label>
+          <input
+            type="text"
+            id="last_name"
+            formControlName="last_name"
+            class="form-control"
+            [class.invalid]="f['last_name']?.invalid && f['last_name']?.touched"
+          />
+          @if (f['last_name']?.invalid && f['last_name']?.touched) {
+            <div class="error-message">Los apellidos son obligatorios</div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo Electrónico</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            class="form-control"
+            readonly
+          />
+          <small class="form-help">El correo electrónico no se puede modificar</small>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" routerLink="/dashboard" class="btn btn-secondary">
+            Cancelar
+          </button>
+          <button type="submit" [disabled]="loading || profileForm.invalid" class="btn btn-primary">
+            @if (loading) {
+              <span>Guardando...</span>
+            } @else {
+              <span>Guardar Cambios</span>
+            }
+          </button>
+        </div>
+      </form>
+    </div>
+  }
+</div>

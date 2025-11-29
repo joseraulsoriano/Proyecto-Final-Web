@@ -1,0 +1,14 @@
+{
+  "buildCommand": "chmod +x build-vercel.sh && ./build-vercel.sh",
+  "outputDirectory": "dist/campus-forum/browser",
+  "framework": "angular",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+
+
+

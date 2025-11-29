@@ -1,0 +1,110 @@
+<div class="landing-container">
+  <div class="landing-hero">
+    <div class="hero-content">
+      <div class="hero-header">
+        <h1>CampusForum</h1>
+      </div>
+      <p class="subtitle">Sistema de Foros y Gestión de Contenidos Académicos</p>
+      <p class="description">
+        Plataforma para facilitar el intercambio académico entre profesores y estudiantes
+      </p>
+      
+      <div class="actions">
+        @if (isAuthenticated) {
+          <a routerLink="/dashboard" class="btn btn-primary">Ir al Dashboard</a>
+        } @else {
+          <a routerLink="/auth/login" class="btn btn-primary">Iniciar Sesión</a>
+          <a routerLink="/auth/register" class="btn btn-secondary">Registrarse</a>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="posts-feed">
+    <div class="feed-header">
+      <h2>Últimas Publicaciones</h2>
+      
+      @if (categories && categories.length > 0) {
+        <div class="category-filters">
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedCategory === null"
+            (click)="onCategoryChange(null)">
+            Todas
+          </button>
+          @for (category of categories; track category.id) {
+            <button 
+              class="filter-btn" 
+              [class.active]="selectedCategory === category.id"
+              (click)="onCategoryChange(category.id)">
+              {{ category.name }}
+            </button>
+          }
+        </div>
+      }
+    </div>
+
+    @if (error) {
+      <div class="error-alert">{{ error }}</div>
+    }
+
+    @if (loading) {
+      <div class="loading">Cargando publicaciones...</div>
+    } @else if (!posts || posts.length === 0) {
+      <div class="empty-state">
+        <p>No hay publicaciones disponibles en este momento</p>
+      </div>
+    } @else {
+      <div class="posts-grid">
+        @for (post of posts; track post.id) {
+          <div class="post-card" (click)="goToPost(post.id)">
+            <div class="post-header">
+              <span class="badge badge-category">{{ post.category.name }}</span>
+              <span class="post-date">{{ formatDate(post.created_at) }}</span>
+            </div>
+            
+            <h3 class="post-title">{{ post.title }}</h3>
+            
+            <p class="post-content">{{ truncateContent(post.content) }}</p>
+            
+            @if (post.tags && post.tags.length > 0) {
+              <div class="post-tags">
+                @for (tag of post.tags; track tag.id) {
+                  <span class="tag">{{ tag.name }}</span>
+                }
+              </div>
+            }
+            
+            <div class="post-footer">
+              <span class="author-name">{{ post.author.full_name }}</span>
+              <span class="comment-count">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                {{ post.comments_count || 0 }}
+              </span>
+            </div>
+          </div>
+        }
+      </div>
+
+      @if (totalPages > 1) {
+        <div class="pagination">
+          <button 
+            class="btn-pagination" 
+            [disabled]="currentPage === 1"
+            (click)="previousPage()">
+            Anterior
+          </button>
+          <span class="page-info">Página {{ currentPage }} de {{ totalPages }}</span>
+          <button 
+            class="btn-pagination" 
+            [disabled]="currentPage === totalPages"
+            (click)="nextPage()">
+            Siguiente
+          </button>
+        </div>
+      }
+    }
+  </div>
+</div>

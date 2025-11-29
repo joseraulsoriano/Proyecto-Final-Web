@@ -1,0 +1,26 @@
+@if (isOpen) {
+  <div class="modal-overlay" (click)="onBackdropClick()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Confirmar Eliminación</h3>
+      </div>
+      
+      <div class="modal-body">
+        <p>¿Estás seguro de que quieres eliminar este post?</p>
+        @if (postTitle) {
+          <p class="post-title-preview"><strong>{{ postTitle }}</strong></p>
+        }
+        <p class="warning-text">Esta acción no se puede deshacer.</p>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-danger" (click)="onConfirm()">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,59 @@
+@if (isOpen) {
+  <div class="modal-overlay" (click)="onBackdropClick()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Reportar Comentario</h3>
+        <button class="btn-close" (click)="onClose()" type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <p>Por favor, explica el motivo del reporte. Esto nos ayuda a mantener un ambiente seguro y respetuoso.</p>
+        
+        @if (error) {
+          <div class="error-alert">{{ error }}</div>
+        }
+
+        <form [formGroup]="reportForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="reason">Motivo del reporte *</label>
+            <textarea
+              id="reason"
+              formControlName="reason"
+              class="form-control"
+              [class.invalid]="f['reason'].invalid && f['reason'].touched"
+              rows="5"
+              placeholder="Describe el motivo del reporte (mínimo 10 caracteres)"
+            ></textarea>
+            @if (f['reason'].invalid && f['reason'].touched) {
+              <div class="error-message">
+                @if (f['reason'].errors?.['required']) {
+                  El motivo es obligatorio
+                } @else if (f['reason'].errors?.['minlength']) {
+                  El motivo debe tener al menos 10 caracteres
+                }
+              </div>
+            }
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="onClose()">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-danger" [disabled]="loading || reportForm.invalid">
+              @if (loading) {
+                <span>Enviando...</span>
+              } @else {
+                <span>Reportar</span>
+              }
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+}

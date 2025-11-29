@@ -1,0 +1,130 @@
+<div class="post-form-container">
+  <div class="form-header">
+    <h1>{{ isEditMode ? 'Editar Post' : 'Crear Nuevo Post' }}</h1>
+    <button routerLink="/dashboard" class="btn-back">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      Volver
+    </button>
+  </div>
+
+  @if (error) {
+    <div class="error-alert">{{ error }}</div>
+  }
+
+  @if (loading && isEditMode) {
+    <div class="loading">Cargando post...</div>
+  } @else {
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="post-form">
+      <!-- Título -->
+      <div class="form-group">
+        <label for="title">Título *</label>
+        <input
+          type="text"
+          id="title"
+          formControlName="title"
+          class="form-control"
+          [class.invalid]="f['title'].invalid && f['title'].touched"
+          placeholder="Escribe un título para tu post (mínimo 5 caracteres)"
+        />
+        @if (f['title'].invalid && f['title'].touched) {
+          <div class="error-message">
+            @if (f['title'].errors?.['required']) {
+              El título es obligatorio
+            } @else if (f['title'].errors?.['minlength']) {
+              El título debe tener al menos 5 caracteres
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Contenido -->
+      <div class="form-group">
+        <label for="content">Contenido *</label>
+        <textarea
+          id="content"
+          formControlName="content"
+          class="form-control"
+          [class.invalid]="f['content'].invalid && f['content'].touched"
+          rows="10"
+          placeholder="Escribe el contenido de tu post (mínimo 20 caracteres)"
+        ></textarea>
+        @if (f['content'].invalid && f['content'].touched) {
+          <div class="error-message">
+            @if (f['content'].errors?.['required']) {
+              El contenido es obligatorio
+            } @else if (f['content'].errors?.['minlength']) {
+              El contenido debe tener al menos 20 caracteres
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Categoría -->
+      <div class="form-group">
+        <label for="category_id">Categoría *</label>
+        <select
+          id="category_id"
+          formControlName="category_id"
+          class="form-control"
+          [class.invalid]="f['category_id'].invalid && f['category_id'].touched"
+        >
+          <option value="">Selecciona una categoría</option>
+          @for (category of categories; track category.id) {
+            <option [value]="category.id">{{ category.name }}</option>
+          }
+        </select>
+        @if (f['category_id'].invalid && f['category_id'].touched) {
+          <div class="error-message">Debes seleccionar una categoría</div>
+        }
+      </div>
+
+      <!-- Tags -->
+      @if (tags.length > 0) {
+        <div class="form-group">
+          <label>Etiquetas (opcional)</label>
+          <div class="tags-container">
+            @for (tag of tags; track tag.id) {
+              <button
+                type="button"
+                class="tag-button"
+                [class.selected]="isTagSelected(tag.id)"
+                (click)="toggleTag(tag.id)"
+              >
+                {{ tag.name }}
+              </button>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Estado -->
+      <div class="form-group">
+        <label for="status">Estado *</label>
+        <select
+          id="status"
+          formControlName="status"
+          class="form-control"
+        >
+          <option [value]="PostStatus.DRAFT">Borrador</option>
+          <option [value]="PostStatus.PUBLISHED">Publicado</option>
+        </select>
+      </div>
+
+      <!-- Botones -->
+      <div class="form-actions">
+        <button type="button" routerLink="/dashboard" class="btn btn-secondary">
+          Cancelar
+        </button>
+        <button type="submit" [disabled]="loading || postForm.invalid" class="btn btn-primary">
+          @if (loading) {
+            <span>Guardando...</span>
+          } @else {
+            <span>{{ isEditMode ? 'Actualizar' : 'Crear' }} Post</span>
+          }
+        </button>
+      </div>
+    </form>
+  }
+</div>

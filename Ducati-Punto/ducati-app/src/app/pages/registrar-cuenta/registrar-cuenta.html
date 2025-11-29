@@ -1,0 +1,156 @@
+<div class="register-container">
+  <header class="header">
+    <div class="header-content">
+      <span class="carrera">CARRERA</span>
+      <span class="divider">|</span>
+      <span class="ducati">DUCATI</span>
+    </div>
+  </header>
+
+  <!-- Imagen promocional -->
+  <div class="promo-section">
+    <div class="promo-content">
+      <div class="promo-text">
+        <div class="promo-line">
+          <span class="word-black">COMPRA</span>
+          <span class="word-black">ACELERA</span>
+        </div>
+        <div class="promo-line">
+          <span class="word-small">y</span>
+          <span class="word-small">GANA</span>
+          <span class="word-small">con</span>
+        </div>
+        <div class="promo-line">
+          <span class="word-red">CARRERA</span>
+        </div>
+      </div>
+      <div class="graphic-bar"></div>
+    </div>
+  </div>
+
+  <!-- Imagen de gafas -->
+  <div class="image-section">
+    <img src="/assets/login-img.png" alt="Ducati" class="duccati-img" />
+    <div class="license-text">Ducati Motor Holding S.p.A. Official Licensed Product</div>
+  </div>
+
+  <div class="register-form-container">
+    <h1 class="register-title">REGÍSTRATE</h1>
+    
+    <form (ngSubmit)="onRegister()" class="register-form">
+      <div class="input-group">
+        <input
+          type="text"
+          [(ngModel)]="nombre"
+          name="nombre"
+          placeholder="Nombre"
+          class="form-input"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <input
+          type="text"
+          [(ngModel)]="apellidos"
+          name="apellidos"
+          placeholder="Apellidos"
+          class="form-input"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Correo electrónico"
+          class="form-input"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Contraseña"
+          class="form-input"
+          required
+        />
+        <button
+          type="button"
+          class="password-toggle"
+          (click)="togglePasswordVisibility()"
+          aria-label="Mostrar/Ocultar contraseña"
+        >
+          <span class="eye-icon">{{ showPassword ? '👁️' : '👁️‍🗨️' }}</span>
+        </button>
+      </div>
+
+      <div class="input-group">
+        <input
+          type="tel"
+          [(ngModel)]="telefono"
+          name="telefono"
+          placeholder="Teléfono"
+          class="form-input"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <input
+          type="text"
+          [(ngModel)]="ciudad"
+          name="ciudad"
+          placeholder="Ciudad"
+          class="form-input"
+          required
+        />
+      </div>
+
+      <div class="input-group">
+        <select
+          [(ngModel)]="edad"
+          name="edad"
+          class="form-input form-select"
+          required
+        >
+          <option value="" disabled selected>Edad</option>
+          <option *ngFor="let edadOption of edades" [value]="edadOption">{{ edadOption }}</option>
+        </select>
+        <span class="select-arrow">▼</span>
+      </div>
+
+      <div class="terms-checkbox">
+        <input
+          type="checkbox"
+          [(ngModel)]="aceptaTerminos"
+          name="aceptaTerminos"
+          id="aceptaTerminos"
+          required
+        />
+        <label for="aceptaTerminos">
+          Acepto los
+          <a routerLink="/terminos-condiciones" class="link">Términos y Condiciones</a>
+        </label>
+      </div>
+
+      <button type="submit" class="register-button" [disabled]="!aceptaTerminos">
+        REGISTRARME
+      </button>
+    </form>
+  </div>
+
+  <div class="login-footer">
+    <p>
+      ¿Ya tienes una cuenta?
+      <a routerLink="/login" class="login-link">Inicia sesión</a>
+    </p>
+  </div>
+
+  <div class="bottom-graphic"></div>
+</div>

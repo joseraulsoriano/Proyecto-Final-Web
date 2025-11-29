@@ -1,0 +1,69 @@
+<div class="sidebar-overlay" [class.open]="isOpen" (click)="close()">
+  <div class="sidebar" [class.open]="isOpen" (click)="$event.stopPropagation()">
+    <!-- Header blanco con X -->
+    <div class="sidebar-header">
+      <button class="close-button" (click)="close()" aria-label="Cerrar menú">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4L4 12M4 4L12 12" stroke="#0066cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Contenido principal con fondo negro -->
+    <nav class="sidebar-nav">
+      <ul class="nav-list">
+        <li *ngIf="isLoggedIn">
+          <a (click)="navigate('/inicio')" class="nav-link">
+            <span class="nav-text">INICIO</span>
+            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li *ngIf="!isLoggedIn">
+          <a (click)="navigate('/login')" class="nav-link">
+            <span class="nav-text">INICIAR SESIÓN</span>
+            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a (click)="navigate('/bases-promocion')" class="nav-link">
+            <span class="nav-text">BASES DE LA PROMOCIÓN</span>
+            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a (click)="navigate('/tiendas-participantes')" class="nav-link">
+            <span class="nav-text">TIENDAS PARTICIPANTES</span>
+            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li *ngIf="isLoggedIn">
+          <a (click)="navigate('/juego')" class="nav-link">
+            <span class="nav-text">JUEGO</span>
+            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Footer con cerrar sesión -->
+    <div class="sidebar-footer">
+      <div class="footer-separator"></div>
+      <a (click)="logout()" class="logout-link" *ngIf="isLoggedIn">
+        <span>CERRAR SESIÓN</span>
+        <svg class="logout-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
