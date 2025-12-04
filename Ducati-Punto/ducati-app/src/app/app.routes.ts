@@ -39,10 +39,6 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/juego/juego').then(m => m.Juego)
   },
   {
-    path: 'tiendas-participantes',
-    loadComponent: () => import('./pages/tiendas-participantes/tiendas-participantes').then(m => m.TiendasParticipantes)
-  },
-  {
     path: '**',
     redirectTo: '/login'
   }

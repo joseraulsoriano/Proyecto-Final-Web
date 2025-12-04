@@ -1,31 +1,18 @@
 <div class="login-container">
-  <!-- Header con CARRERA y DUCATI -->
+  <!-- Header con logo CARRERA y DUCATI -->
   <header class="header">
-    <div class="header-content">
-      <span class="carrera">CARRERA</span>
-      <span class="divider">|</span>
-      <span class="ducati">DUCATI</span>
-    </div>
+    <img src="/assets/Login/logo-marcas.png" alt="CARRERA DUCATI" class="logo-marcas" />
   </header>
 
-  <!-- Sección principal con imagen y texto promocional -->
+  <!-- Sección promocional con imagen y texto -->
   <div class="promo-section">
-    <div class="promo-content">
-      <div class="promo-text">
-        <div class="promo-line">
-          <span class="word-black">COMPRA</span>
-          <span class="word-black">ACELERA</span>
-        </div>
-        <div class="promo-line">
-          <span class="word-small">y</span>
-          <span class="word-small">GANA</span>
-          <span class="word-small">con</span>
-        </div>
-        <div class="promo-line">
-          <span class="word-red">CARRERA</span>
-        </div>
-      </div>
-      <div class="graphic-bar"></div>
+    <div class="promo-image-container">
+      <img 
+        src="/assets/Login/login-img.png" 
+        srcset="/assets/Login/login-img.png 1x, /assets/Login/login-img@2x.png 2x"
+        alt="Promoción Carrera Ducati" 
+        class="promo-image"
+      />
     </div>
   </div>
 
@@ -51,7 +38,7 @@
           [(ngModel)]="password"
           name="password"
           placeholder="Contraseña"
-          class="form-input"
+          class="form-input password-input"
           required
         />
         <button
@@ -60,7 +47,7 @@
           (click)="togglePasswordVisibility()"
           aria-label="Mostrar/Ocultar contraseña"
         >
-          <span class="eye-icon">{{ showPassword ? '👁️' : '👁️‍🗨️' }}</span>
+          <img src="/assets/Login/ver-icon.svg" alt="Ver contraseña" class="eye-icon" />
         </button>
       </div>
 
@@ -74,14 +61,18 @@
     </form>
   </div>
 
+  <!-- Barra gris debajo del botón -->
+  <div class="gray-bar"></div>
+
   <!-- Footer con registro -->
   <div class="register-footer">
-    <p>
-      ¿Aún no tienes una cuenta?
-      <a routerLink="/registrar-cuenta" class="register-link">Regístrate</a>
-    </p>
+    <span class="register-text">
+      ¿Aún no tienes una cuenta? <a routerLink="/registrar-cuenta" class="register-link">Regístrate</a>
+    </span>
   </div>
 
   <!-- Barra gráfica inferior -->
-  <div class="bottom-graphic"></div>
+  <div class="bottom-graphic">
+    <img src="/assets/Login/liston-img.svg" alt="Listón" class="liston-bottom" />
+  </div>
 </div>

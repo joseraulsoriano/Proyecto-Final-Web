@@ -3,8 +3,14 @@
     <!-- Header blanco con X -->
     <div class="sidebar-header">
       <button class="close-button" (click)="close()" aria-label="Cerrar menú">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4L4 12M4 4L12 12" stroke="#0066cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18.828" height="18.828" viewBox="0 0 18.828 18.828" class="close-icon">
+          <g id="cerrar-icon" transform="translate(1.414 1.414)">
+            <rect id="Area" width="16" height="16" transform="translate(0)" fill="none" opacity="0"/>
+            <g id="Icon" transform="translate(0 3.333)">
+              <line x1="16" y2="16" transform="translate(0 -3.333)" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              <line x2="16" y2="16" transform="translate(0 -3.333)" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+          </g>
         </svg>
       </button>
     </div>
@@ -12,58 +18,45 @@
     <!-- Contenido principal con fondo negro -->
     <nav class="sidebar-nav">
       <ul class="nav-list">
-        <li *ngIf="isLoggedIn">
-          <a (click)="navigate('/inicio')" class="nav-link">
-            <span class="nav-text">INICIO</span>
-            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </li>
-        <li *ngIf="!isLoggedIn">
-          <a (click)="navigate('/login')" class="nav-link">
-            <span class="nav-text">INICIAR SESIÓN</span>
-            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <li>
+          <a (click)="navigate(isLoggedIn ? '/inicio' : '/login')" class="nav-link">
+            <img src="/assets/Login/Menu/titulo-icon@2x.png" alt="" class="titulo-shape-icon" />
+            <span class="nav-text">{{ isLoggedIn ? 'INICIO' : 'INICIAR SESIÓN' }}</span>
+            <img src="/assets/Login/Menu/chevron-icon.svg" alt="" class="nav-arrow" />
           </a>
         </li>
         <li>
           <a (click)="navigate('/bases-promocion')" class="nav-link">
+            <img src="/assets/Login/Menu/titulo-icon@2x.png" alt="" class="titulo-shape-icon" />
             <span class="nav-text">BASES DE LA PROMOCIÓN</span>
-            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <img src="/assets/Login/Menu/chevron-icon.svg" alt="" class="nav-arrow" />
           </a>
         </li>
         <li>
-          <a (click)="navigate('/tiendas-participantes')" class="nav-link">
+          <a (click)="openExternalLink('https://docs.google.com/document/d/10J6EUDqat7ISeHheKPc-oJDQGQ7xXQO0/edit')" class="nav-link">
+            <img src="/assets/Login/Menu/titulo-icon@2x.png" alt="" class="titulo-shape-icon" />
             <span class="nav-text">TIENDAS PARTICIPANTES</span>
-            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </li>
-        <li *ngIf="isLoggedIn">
-          <a (click)="navigate('/juego')" class="nav-link">
-            <span class="nav-text">JUEGO</span>
-            <svg class="nav-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <img src="/assets/Login/Menu/chevron-icon.svg" alt="" class="nav-arrow" />
           </a>
         </li>
       </ul>
+      <!-- Footer con cerrar sesión -->
+      <div class="sidebar-footer">
+        <div class="footer-separator"></div>
+        <a (click)="logout()" class="logout-link" *ngIf="isLoggedIn">
+          <span>CERRAR SESIÓN</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" class="logout-arrow">
+            <g id="logout-icon" transform="translate(0.5 0.5)">
+              <rect id="Area" width="12" height="12" fill="#fcfcfc" opacity="0"/>
+              <g id="Icon" transform="translate(1.29 2.499)">
+                <path d="M6,14H3.333A1.333,1.333,0,0,1,2,12.667V3.333A1.333,1.333,0,0,1,3.333,2H6" transform="translate(-3.29 -4.499)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <path d="M10.667,11.333,14,8,10.667,4.667" transform="translate(-3.29 -4.499)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                <line x1="8" transform="translate(2.71 3.501)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+              </g>
+            </g>
+          </svg>
+        </a>
+      </div>
     </nav>
-
-    <!-- Footer con cerrar sesión -->
-    <div class="sidebar-footer">
-      <div class="footer-separator"></div>
-      <a (click)="logout()" class="logout-link" *ngIf="isLoggedIn">
-        <span>CERRAR SESIÓN</span>
-        <svg class="logout-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4.5 9L7.5 6L4.5 3" stroke="#87CEEB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
   </div>
 </div>

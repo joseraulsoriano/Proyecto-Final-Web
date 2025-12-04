@@ -29,8 +29,7 @@ export class RegistrarCuenta {
   }
 
   onRegister(): void {
-    if (this.nombre && this.apellidos && this.email && this.password && this.telefono && this.ciudad && this.edad && this.aceptaTerminos) {
-      this.router.navigate(['/inicio']);
-    }
+    // Navegar a inicio cuando se hace clic en registrar
+    this.router.navigate(['/inicio']);
   }
 }

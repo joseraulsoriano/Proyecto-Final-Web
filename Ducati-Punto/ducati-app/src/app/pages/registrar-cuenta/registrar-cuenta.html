@@ -1,37 +1,19 @@
 <div class="register-container">
+  <!-- Header con logo CARRERA y DUCATI -->
   <header class="header">
-    <div class="header-content">
-      <span class="carrera">CARRERA</span>
-      <span class="divider">|</span>
-      <span class="ducati">DUCATI</span>
-    </div>
+    <img src="/assets/Login/logo-marcas.png" alt="CARRERA DUCATI" class="logo-marcas" />
   </header>
 
-  <!-- Imagen promocional -->
+  <!-- Sección promocional con imagen -->
   <div class="promo-section">
-    <div class="promo-content">
-      <div class="promo-text">
-        <div class="promo-line">
-          <span class="word-black">COMPRA</span>
-          <span class="word-black">ACELERA</span>
-        </div>
-        <div class="promo-line">
-          <span class="word-small">y</span>
-          <span class="word-small">GANA</span>
-          <span class="word-small">con</span>
-        </div>
-        <div class="promo-line">
-          <span class="word-red">CARRERA</span>
-        </div>
-      </div>
-      <div class="graphic-bar"></div>
+    <div class="promo-image-container">
+      <img 
+        src="/assets/Login/login-img.png" 
+        srcset="/assets/Login/login-img.png 1x, /assets/Login/login-img@2x.png 2x"
+        alt="Promoción Carrera Ducati" 
+        class="promo-image"
+      />
     </div>
-  </div>
-
-  <!-- Imagen de gafas -->
-  <div class="image-section">
-    <img src="/assets/login-img.png" alt="Ducati" class="duccati-img" />
-    <div class="license-text">Ducati Motor Holding S.p.A. Official Licensed Product</div>
   </div>
 
   <div class="register-form-container">
@@ -77,7 +59,7 @@
           [(ngModel)]="password"
           name="password"
           placeholder="Contraseña"
-          class="form-input"
+          class="form-input password-input"
           required
         />
         <button
@@ -86,7 +68,7 @@
           (click)="togglePasswordVisibility()"
           aria-label="Mostrar/Ocultar contraseña"
         >
-          <span class="eye-icon">{{ showPassword ? '👁️' : '👁️‍🗨️' }}</span>
+          <img src="/assets/Login/ver-icon.svg" alt="Ver contraseña" class="eye-icon" />
         </button>
       </div>
 
@@ -134,8 +116,7 @@
           required
         />
         <label for="aceptaTerminos">
-          Acepto los
-          <a routerLink="/terminos-condiciones" class="link">Términos y Condiciones</a>
+          Acepto los <a routerLink="/terminos-condiciones" class="link">Términos y Condiciones</a>
         </label>
       </div>
 
@@ -145,6 +126,9 @@
     </form>
   </div>
 
+  <!-- Barra gris debajo del botón -->
+  <div class="gray-bar"></div>
+
   <div class="login-footer">
     <p>
       ¿Ya tienes una cuenta?
@@ -152,5 +136,7 @@
     </p>
   </div>
 
-  <div class="bottom-graphic"></div>
+  <div class="bottom-graphic">
+    <img src="/assets/Login/liston-img.svg" alt="Listón" />
+  </div>
 </div>

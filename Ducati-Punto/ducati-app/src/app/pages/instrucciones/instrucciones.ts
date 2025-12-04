@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Sidebar } from '../../components/sidebar/sidebar';
+import { Footer } from '../../components/footer/footer';
 
 @Component({
   selector: 'app-instrucciones',
-  imports: [RouterLink, CommonModule, Sidebar],
+  imports: [CommonModule, Sidebar, Footer],
   templateUrl: './instrucciones.html',
   styleUrl: './instrucciones.scss',
 })

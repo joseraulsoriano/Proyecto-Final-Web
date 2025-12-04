@@ -6,91 +6,308 @@
 }
 
 .juego-container {
-  width: 100%;
-  min-height: 740px;
-  max-width: 360px;
+  width: 360px;
+  min-height: 1342px;
+  height: 1342px;
+  background: rgba(255, 255, 255, 1);
   margin: 0 auto;
-  background-color: var(--color-primary);
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow-x: visible;
+  overflow-y: auto;
+  opacity: 1;
+}
+
+.juego-container.playing {
+  min-height: auto;
+  height: auto;
+  background: #000000;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
+/* Header */
 .header {
-  width: 100%;
-  padding: 16px;
-  background-color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 360px;
+  height: 80px;
+  background: rgba(255, 255, 255, 1) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  position: relative;
   z-index: 10;
 }
 
 .menu-button {
+  position: absolute;
+  top: 30px;
+  left: 16px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.menu-icon {
-  width: 22px;
+  z-index: 11;
+  width: 20px;
   height: 20px;
 }
 
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
 .header-content {
+  position: absolute;
+  top: 24px;
+  left: 60px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex: 1;
   justify-content: center;
 }
 
-.carrera,
-.ducati {
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--color-accent);
-  font-family: sans-serif;
-}
-
-.divider {
-  color: var(--color-accent);
-  font-size: 18px;
-  font-weight: bold;
+.logo-marcas {
+  width: 242px;
+  height: 34px;
+  display: block;
+  object-fit: contain;
 }
 
 .header-spacer {
   width: 40px;
 }
 
-/* Pantalla del juego */
-.game-screen-container {
-  flex: 1;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
+/* Barra gris después del header */
+.gray-bar-header {
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  width: 360px;
+  height: 1px;
+  background-color: #E0E0E0;
+  opacity: 1;
+  z-index: 3;
+}
+
+/* Contenido principal */
+.content {
+  position: absolute;
+  top: 81px;
+  left: 0px;
+  width: 360px;
+  padding: 24px 16px;
+  box-sizing: border-box;
+}
+
+/* Sección NUEVO LOOK */
+.nuevo-look-section {
+  margin-bottom: 32px;
+}
+
+.title-section {
   display: flex;
   align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.title-shape {
+  display: block;
+  width: 4px;
+  height: 40px;
+  object-fit: fill;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  margin: 0;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.nuevo-look-text {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
+/* Lista de lentes */
+.lentes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.lente-item {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 0;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.lente-item-1 {
+  background-color: transparent;
+}
+
+.lente-item-2,
+.lente-item-3 {
+  background-color: transparent;
+}
+
+.lente-image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.lente-code {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Botones de acción */
+.action-buttons {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.action-button-wrapper {
+  flex: 1;
+  display: flex;
   justify-content: center;
 }
 
-.game-screen {
+.action-button {
+  flex: none;
+  padding: 16px;
+  border: none;
+  border-radius: 0;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.skip-button {
+  flex: none;
+  width: 58px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: rgba(205, 0, 0, 1);
+  letter-spacing: 0.8px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.skip-button:hover,
+.skip-button:active {
+  opacity: 1;
+}
+
+.use-button {
+  flex: none;
+  width: 156px;
+  padding: 0;
+  height: 40px;
+  background-color: rgba(205, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.use-button:hover {
+  opacity: 0.9;
+}
+
+.use-button:active {
+  opacity: 0.8;
+}
+
+/* Banner rojo con texto de licencia */
+.license-banner {
+  position: absolute;
+  top: 1150px;
+  left: 0px;
+  width: 360px;
+  background: rgba(205, 0, 0, 1);
+  padding: 8px 16px;
+  text-align: center;
+  z-index: 2;
+}
+
+.license-banner p {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 1);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Footer */
+app-footer {
+  position: absolute;
+  top: 1180px;
+  left: calc((360px - 100vw) / 2);
+  width: 100vw;
+  display: block;
+}
+
+/* Pantalla del juego */
+.lentes-selection-screen {
   width: 100%;
   height: 100%;
+}
+
+.game-screen-container {
   position: relative;
+  width: 360px;
+  max-width: 360px;
+  background-color: #000000;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+  padding-bottom: calc(360 / 740 * 100%);
 }
 
 .game-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -98,187 +315,69 @@
   display: block;
 }
 
-/* UI del juego superpuesta */
-.game-ui {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-/* Indicadores superiores izquierda */
-.ui-top-left {
-  position: absolute;
-  top: 20px;
-  left: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  z-index: 5;
-}
-
-.ui-box {
-  background-color: var(--primario);
-  color: var(--color-primary);
-  padding: 8px 12px;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 80px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.ui-label {
-  font-size: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.ui-value {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* Banner publicitario */
-.ui-banner {
-  position: absolute;
-  top: 20px;
-  right: 16px;
-  background-color: var(--color-primary);
-  padding: 12px 16px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 5;
-}
-
-.banner-carrera,
-.banner-ducati {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--primario);
-  font-family: sans-serif;
-}
-
-.banner-divider {
-  color: var(--primario);
-  font-size: 16px;
-  font-weight: bold;
-}
-
-/* Controles del juego */
-.game-controls {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 16px;
-  z-index: 5;
-}
-
-.control-button {
-  background-color: var(--color-primary);
-  border: 2px solid var(--gris2);
-  border-radius: 4px;
-  padding: 12px 24px;
-  color: var(--texto);
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  pointer-events: auto;
-  transition: all 0.2s;
-
-  &:active {
-    background-color: var(--gris1);
-    transform: scale(0.95);
-  }
-}
-
-.accelerator-icon {
-  width: 48px;
-  height: 48px;
-  background-color: var(--color-primary);
-  border: 2px solid var(--gris2);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-
-  &::before {
-    content: '';
-    width: 24px;
-    height: 24px;
-    background: repeating-linear-gradient(
-      to bottom,
-      var(--texto) 0px,
-      var(--texto) 2px,
-      transparent 2px,
-      transparent 4px
-    );
-  }
-}
+/* La UI superpuesta se oculta en la vista horizontal */
 
 /* Pantalla de juego terminado */
 .game-over-screen {
-  flex: 1;
   width: 100%;
+  min-height: 730px;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 24px 16px;
-  background-color: var(--color-primary);
-  overflow-y: auto;
+  flex-direction: column;
+  position: relative;
+  background: rgba(255, 255, 255, 1);
 }
 
 .game-over-content {
-  width: 100%;
-  max-width: 360px;
+  position: absolute;
+  top: 81px;
+  left: 0px;
+  width: 360px;
+  padding: 24px 16px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 /* Título con línea roja */
-.title-section {
+.game-over-screen .title-section {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   width: 100%;
   margin-bottom: 24px;
+  margin-top: 0;
 }
 
-.title-shape {
+.game-over-screen .title-shape {
+  display: block;
   width: 4px;
   height: 40px;
+  object-fit: fill;
   flex-shrink: 0;
 }
 
 .game-over-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--texto);
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
   margin: 0;
-  font-family: sans-serif;
+  line-height: 24px;
   text-transform: uppercase;
-  line-height: 1.2;
+}
+
+.game-over-screen .title-section {
+  align-items: center;
 }
 
 /* Rectángulo rojo */
 .red-rectangle {
-  width: 200px;
-  height: 200px;
-  background-color: var(--primario);
-  border-radius: 8px;
-  margin-bottom: 24px;
+  width: 90px;
+  height: 160px;
+  background-color: rgba(205, 0, 0, 1);
+  border-radius: 0;
+  margin-bottom: 32px;
 }
 
 /* Sección de puntos */
@@ -291,26 +390,28 @@
 }
 
 .obtuviste-text {
-  font-size: 14px;
-  font-weight: bold;
-  color: var(--primario);
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(205, 0, 0, 1);
   text-transform: uppercase;
   margin: 0;
-  font-family: sans-serif;
 }
 
 .points-value {
-  font-size: 64px;
-  font-weight: bold;
-  color: var(--texto);
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
   margin: 0;
-  font-family: sans-serif;
   line-height: 1;
 }
 
 .points-label {
-  font-size: 18px;
-  color: var(--texto);
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
   margin: 0;
   text-transform: lowercase;
 }
@@ -320,127 +421,75 @@
   width: 100%;
   text-align: center;
   margin-bottom: 32px;
-  padding: 0 16px;
 }
 
-.motivational-text p {
-  font-size: 14px;
-  color: var(--texto);
-  line-height: 1.6;
-  margin: 0;
+.motivational-text-content {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 24px;
+  letter-spacing: 0;
+  width: 328px;
+  height: 40px;
+  margin: 0 auto;
 }
 
-.motivational-text strong {
-  font-weight: bold;
-  color: var(--texto);
+.motivational-text-content strong {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
 }
 
 .game-over-buttons {
   width: 100%;
-  max-width: 320px;
+  max-width: 328px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-bottom: 16px;
 }
 
-.action-button {
+.game-over-screen .action-button {
   width: 100%;
-  padding: 16px;
+  padding: 16px 32px;
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 400;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s;
-  font-family: sans-serif;
-
-  &.primary {
-    background-color: var(--primario);
-    color: var(--color-primary);
-
-    &:hover {
-      background-color: rgba(205, 0, 0, 0.9);
-    }
-
-    &:active {
-      transform: scale(0.98);
-    }
-  }
-
-  &.secondary {
-    background-color: var(--gris1);
-    color: var(--texto);
-    border: 2px solid var(--gris2);
-
-    &:hover {
-      background-color: var(--gris2);
-    }
-
-    &:active {
-      transform: scale(0.98);
-    }
-  }
+  transition: opacity 0.2s;
 }
 
-/* Footer */
-.footer {
-  width: 100%;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 1);
-  color: var(--color-primary);
-  margin-top: auto;
-  position: relative;
-  z-index: 10;
-}
-
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.footer-link {
-  color: var(--color-primary);
-  text-decoration: none;
-  font-size: 14px;
-  text-transform: uppercase;
+.game-over-screen .action-button.primary {
+  background-color: rgba(205, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
 
   &:hover {
-    text-decoration: underline;
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 0.8;
   }
 }
 
-.footer-copyright {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+.game-over-screen .action-button.narrow {
+  width: 193px;
+  height: 35px;
+  margin: 0 auto;
 }
 
-.footer-copyright p {
-  color: var(--color-secondary-main);
-  font-size: 12px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+.juego-container.game-over {
+  min-height: 820px;
+  height: auto;
+  overflow-y: auto;
 }
 
-.footer-logo {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-}
-
-.logo-bar {
-  width: 8px;
-  height: 24px;
-
-  &.black {
-    background-color: var(--color-secondary-main);
-  }
-
-  &.red {
-    background-color: var(--color-accent);
-  }
+.juego-container.game-over app-footer {
+  top: auto;
+  position: relative;
+  margin-top: 8px;
 }

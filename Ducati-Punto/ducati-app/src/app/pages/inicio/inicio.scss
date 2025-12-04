@@ -1,414 +1,561 @@
+/* Avenir Next LT Pro - usando fuente similar como fallback */
+
 .inicio-container {
-  width: 100%;
-  min-height: 740px;
-  max-width: 360px;
+  width: 360px;
+  height: 1581px;
+  min-height: 1581px;
+  background: #FFFFFF;
   margin: 0 auto;
-  background-color: var(--color-primary);
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: visible;
+  overflow-y: auto;
 }
 
+/* Header */
 .header {
-  width: 100%;
-  padding: 16px;
-  background-color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 360px;
+  height: 80px;
+  background: rgba(255, 255, 255, 1) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  position: relative;
+  z-index: 10;
 }
 
 .menu-button {
+  position: absolute;
+  top: 30px;
+  left: 16px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.menu-icon {
-  width: 22px;
+  z-index: 11;
+  width: 20px;
   height: 20px;
 }
 
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
 .header-content {
+  position: absolute;
+  top: 24px;
+  left: 60px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex: 1;
   justify-content: center;
 }
 
-.carrera,
-.ducati {
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--color-accent);
-  font-family: sans-serif;
-}
-
-.divider {
-  color: var(--color-accent);
-  font-size: 18px;
-  font-weight: bold;
+.logo-marcas {
+  width: 242px;
+  height: 34px;
+  display: block;
+  object-fit: contain;
 }
 
 .header-spacer {
   width: 40px;
 }
 
+/* Barra gris después del header */
+.gray-bar-header {
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  width: 360px;
+  height: 1px;
+  background-color: #E0E0E0;
+  opacity: 1;
+  z-index: 3;
+}
+
 /* Banner Section */
 .banner-section {
-  width: 100%;
-  padding: 16px;
-  margin-bottom: 16px;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 360px;
+  height: 174px;
+  margin: 0;
+  padding: 0;
 }
 
-.banner-content {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
+.banner-img {
+  width: 360px;
+  height: 174px;
+  object-fit: cover;
+  display: block;
 }
 
-.banner-left {
-  flex: 1;
+/* Texto después del banner */
+.banner-text-section {
+  position: relative;
+  width: 360px;
 }
 
-.banner-moto {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-.banner-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.graphic-bar {
-  width: 6px;
-  height: 60px;
-  background: linear-gradient(
-    to bottom,
-    var(--color-secondary-main) 0%,
-    var(--color-secondary-main) 20%,
-    var(--color-accent) 20%,
-    var(--color-accent) 80%,
-    var(--color-secondary-main) 80%,
-    var(--color-secondary-main) 100%
-  );
-}
-
-.promo-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.promo-line {
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-  margin-bottom: 2px;
-}
-
-.word-black {
-  font-size: 12px;
-  font-weight: bold;
-  color: var(--color-secondary-main);
-}
-
-.word-small {
-  font-size: 10px;
-  color: var(--color-secondary-main);
-}
-
-.word-red {
+.banner-text-1 {
+  position: absolute;
+  top: 175px;
+  left: 16px;
+  width: 180px;
+  height: 16px;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
   font-size: 16px;
-  font-weight: bold;
-  color: var(--color-accent);
-  font-family: sans-serif;
+  color: rgba(0, 0, 0, 1);
+  letter-spacing: 0px;
+  line-height: 24px;
+  text-align: left;
+  margin: 0;
+  opacity: 1;
+  white-space: nowrap;
 }
 
-.banner-cta {
-  margin-top: 8px;
-}
-
-.cta-text {
-  font-size: 12px;
-  color: var(--color-secondary-main);
-  margin-bottom: 8px;
+.banner-text-2 {
+  position: absolute;
+  top: 195px;
+  left: 42px;
+  width: 132px;
+  height: 16px;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+  letter-spacing: 0px;
+  line-height: 24px;
+  text-align: left;
+  margin: 0;
+  opacity: 1;
+  white-space: nowrap;
 }
 
 .saber-mas-button {
+  position: absolute;
+  top: 190px;
+  left: 243px;
+  width: 101px;
+  height: 14px;
+  background: transparent;
+  border: none;
+  padding: 0;
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 8px 12px;
-  background-color: transparent;
-  border: 2px solid #0066cc;
-  border-radius: 4px;
-  color: #0066cc;
-  font-size: 12px;
-  font-weight: bold;
+  gap: 8px;
   cursor: pointer;
-  transition: all 0.3s;
-
-  &:hover {
-    background-color: #0066cc;
-    color: var(--color-primary);
-  }
+  z-index: 3;
 }
 
-.flecha-icon {
-  width: 14px;
-  height: 14px;
+.saber-mas-text {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(205, 0, 0, 1);
+  letter-spacing: 0px;
+  line-height: 24px;
+  text-align: left;
+  text-transform: uppercase;
+  opacity: 1;
+  white-space: nowrap;
+}
+
+.saber-mas-button .flecha-icon {
+  width: 12px;
+  height: 12px;
+  display: block;
+  opacity: 1;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+/* Barra gris después de SABER MÁS */
+.gray-bar-saber-mas {
+  position: absolute;
+  top: 320px;
+  left: 0px;
+  width: 360px;
+  height: 1px;
+  background-color: #E0E0E0;
+  opacity: 1;
+  z-index: 3;
 }
 
 /* Greeting Section */
 .greeting-section {
-  padding: 0 16px 16px 16px;
+  position: absolute;
+  top: 330px;
+  left: 0;
+  width: 360px;
+  padding: 16px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
-.greeting {
-  font-size: 18px;
-  font-weight: normal;
-  color: var(--color-secondary-main);
+.greeting-hola {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
   margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.greeting-nombre {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* Code Register Section */
 .code-register-section {
-  padding: 0 16px 24px 16px;
+  position: absolute;
+  top: 410px;
+  left: 0px;
+  width: 360px;
+  height: 310px;
+  background: rgba(122, 122, 122, 0.12) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .section-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--color-secondary-main);
-  margin-bottom: 16px;
-  font-family: sans-serif;
+  position: absolute;
+  top: 30px;
+  left: 71px;
+  width: 218px;
+  height: 20px;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
+  letter-spacing: 0px;
+  line-height: 24px;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  opacity: 1;
+  white-space: nowrap;
 }
 
 .code-inputs {
+  position: absolute;
+  top: 70px;
+  left: 24px;
   display: flex;
   gap: 8px;
-  margin-bottom: 16px;
-  justify-content: center;
 }
 
 .code-input {
-  width: 40px;
+  width: 32px;
   height: 48px;
-  border: 1px solid var(--color-secondary-main);
+  border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 4px;
   text-align: center;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 20px;
-  font-weight: bold;
-  background-color: var(--color-primary);
-  color: var(--color-secondary-main);
+  font-weight: 400;
+  background: rgba(255, 255, 255, 1) 0% 0% no-repeat padding-box;
+  color: #000000;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: uppercase;
 
   &:focus {
     outline: none;
-    border-color: var(--color-accent);
+    border-color: #CD0000;
     border-width: 2px;
   }
 }
 
 .store-dropdown-container {
-  position: relative;
-  margin-bottom: 16px;
+  position: absolute;
+  top: 140px;
+  left: 24px;
+  width: 312px;
+  padding-top: 8px;
+}
+
+.store-label {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  padding: 0 10px;
+  background: #FFFFFF;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  letter-spacing: 0px;
+  line-height: 16px;
+  text-align: left;
+  opacity: 1;
+  display: inline-block;
+  z-index: 8;
 }
 
 .store-dropdown {
+  position: relative;
   width: 100%;
-  padding: 12px 40px 12px 16px;
-  border: 1px solid var(--color-secondary-main);
+  height: 40px;
+  padding: 10px 40px 10px 16px;
+  border: 1px solid #000000;
   border-radius: 4px;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 16px;
-  background-color: var(--color-primary);
-  color: var(--color-secondary-main);
+  font-weight: 400;
+  line-height: 26px;
+  background-color: #FFFFFF;
+  color: #000000;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   cursor: pointer;
+  box-sizing: border-box;
 
   &:focus {
     outline: none;
-    border-color: var(--color-accent);
+    border-color: #CD0000;
   }
 }
 
 .dropdown-icon {
   position: absolute;
-  right: 12px;
   top: 50%;
   transform: translateY(-50%);
+  right: 12px;
   width: 17px;
   height: 16px;
   pointer-events: none;
+  z-index: 1;
 }
 
 .register-button {
-  width: 100%;
-  padding: 14px;
-  background-color: #8B4A6B;
-  color: var(--color-primary);
+  position: absolute;
+  top: 220px;
+  left: 86px;
+  width: 188px;
+  height: 40px;
+  padding: 0;
+  background: rgba(205, 0, 0, 1) 0% 0% no-repeat padding-box;
+  color: #FFFFFF;
   border: none;
-  border-radius: 4px;
+  border-radius: 0;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 250;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: opacity 0.2s ease-out;
+  text-transform: uppercase;
+  opacity: 1;
 
   &:hover {
-    background-color: #7a3f5a;
+    opacity: 0.9;
   }
 
   &:active {
-    transform: scale(0.98);
+    opacity: 0.8;
   }
 }
 
 /* Score Section */
 .score-section {
+  position: absolute;
+  top: 733px;
+  left: 0px;
+  width: 360px;
+  height: 248px;
+  background: rgba(255, 255, 255, 1) 0% 0% no-repeat padding-box;
+  opacity: 1;
   display: flex;
-  gap: 12px;
-  padding: 0 16px 24px 16px;
+  flex-direction: row;
+  gap: 0;
+  padding: 24px 0;
+  box-sizing: border-box;
 }
 
 .score-box,
 .ranking-box {
   flex: 1;
-  background-color: var(--color-primary);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  width: 180px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
   padding: 16px;
   text-align: center;
+  box-sizing: border-box;
+}
+
+.score-title,
+.ranking-title {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
 }
 
 .score-label,
 .ranking-label {
-  font-size: 12px;
-  color: var(--color-tertiary);
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
   margin: 0 0 8px 0;
 }
 
 .score-value,
 .ranking-value {
-  font-size: 32px;
-  font-weight: bold;
-  color: var(--color-accent);
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #CD0000;
   margin: 0;
-  font-family: sans-serif;
+  line-height: 1;
 }
 
 .score-unit {
-  font-size: 14px;
-  color: var(--color-tertiary);
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
   margin: 4px 0 0 0;
 }
 
 /* Codes Table Section */
+.codes-footer-wrapper {
+  position: absolute;
+  top: 996px;
+  left: 0;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
 .codes-table-section {
-  padding: 0 16px 24px 16px;
+  width: 100%;
+  background: rgba(122, 122, 122, 0.12) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  padding: 32px 16px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.codes-table-section .section-title {
+  position: static;
+  font-size: 16px;
+  margin: 0;
 }
 
 .table-container {
-  overflow-x: auto;
+  overflow-x: visible;
+  position: static;
+  background-color: transparent;
+  margin: 0;
+  padding: 60px 0;
+  border-radius: 0;
 }
 
 .codes-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
-  background-color: var(--color-primary);
+  table-layout: fixed;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: transparent;
 }
 
 .codes-table thead {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: transparent;
+  position: static;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.codes-table thead tr {
+  position: static;
+  height: auto;
 }
 
 .codes-table th {
-  padding: 8px;
+  position: static;
+  padding: 0 12px 8px;
   text-align: left;
-  font-weight: bold;
-  color: var(--color-secondary-main);
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 1);
+  letter-spacing: 0px;
+  border: none;
+  text-transform: none;
+}
+
+.codes-table th:last-child,
+.codes-table td:last-child {
+  width: 82px;
+  text-align: center;
+  padding-right: 0;
+}
+
+.codes-table tbody {
+  position: static;
+}
+
+.codes-table tbody tr {
+  position: static;
+  width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 11px;
 }
 
-.codes-table td {
-  padding: 8px;
-  color: var(--color-tertiary);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.codes-table tbody tr:last-child td {
+.codes-table tbody tr:last-child {
   border-bottom: none;
 }
 
-/* Footer */
-.footer {
-  width: 100%;
-  padding: 20px;
-  background-color: var(--color-secondary-main);
-  color: var(--color-primary);
-  margin-top: auto;
+.codes-table td {
+  position: static;
+  padding: 8px 12px;
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+.codes-table th:first-child,
+.codes-table td:first-child {
+  width: 120px;
 }
-
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.footer-link {
-  color: var(--color-primary);
-  text-decoration: none;
   font-size: 14px;
-  text-transform: uppercase;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  font-weight: 400;
+  line-height: 26px;
+  color: rgba(0, 0, 0, 1);
+  letter-spacing: 0px;
+  text-align: left;
+  text-transform: none;
+  border: none;
+  opacity: 1;
 }
 
-.footer-copyright {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.footer-copyright p {
-  color: var(--color-secondary-main);
-  font-size: 12px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.footer-logo {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-}
-
-.logo-bar {
-  width: 8px;
-  height: 24px;
-
-  &.black {
-    background-color: var(--color-secondary-main);
-  }
-
-  &.red {
-    background-color: var(--color-accent);
-  }
+/* Footer positioning for Inicio */
+.codes-footer-wrapper app-footer {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
 }

@@ -1,94 +1,117 @@
 .legal-container {
-  width: 100%;
-  min-height: 740px;
-  max-width: 360px;
+  width: 360px;
+  height: 1162px;
+  background: rgba(255, 255, 255, 1);
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 1);
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: visible;
+  overflow-y: auto;
+  opacity: 1;
 }
 
+/* Header */
 .header {
-  width: 100%;
-  padding: 16px;
-  background-color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 360px;
+  height: 80px;
+  background: rgba(255, 255, 255, 1) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  position: relative;
+  z-index: 10;
 }
 
 .menu-button {
+  position: absolute;
+  top: 30px;
+  left: 16px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.menu-icon {
-  width: 22px;
+  z-index: 11;
+  width: 20px;
   height: 20px;
 }
 
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
 .header-content {
+  position: absolute;
+  top: 24px;
+  left: 60px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex: 1;
   justify-content: center;
 }
 
-.carrera,
-.ducati {
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--color-accent);
-  font-family: sans-serif;
-}
-
-.divider {
-  color: var(--color-accent);
-  font-size: 18px;
-  font-weight: bold;
+.logo-marcas {
+  width: 242px;
+  height: 34px;
+  display: block;
+  object-fit: contain;
 }
 
 .header-spacer {
   width: 40px;
 }
 
+/* Barra gris después del header */
+.gray-bar-header {
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  width: 360px;
+  height: 1px;
+  background-color: #E0E0E0;
+  opacity: 1;
+  z-index: 3;
+}
+
 .content {
-  flex: 1;
-  overflow-y: auto;
+  position: absolute;
+  top: 81px;
+  left: 0px;
+  width: 360px;
   padding: 24px 16px;
+  box-sizing: border-box;
 }
 
 /* Título con línea roja */
 .title-section {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   margin-bottom: 24px;
+  margin-top: 0;
 }
 
 .title-shape {
+  display: block;
   width: 4px;
   height: 40px;
+  object-fit: fill;
   flex-shrink: 0;
 }
 
 .title {
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--color-secondary-main);
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 1);
   margin: 0;
-  font-family: sans-serif;
+  line-height: 24px;
   text-transform: uppercase;
-  line-height: 1.2;
 }
 
 /* Contenido de texto */
@@ -99,69 +122,20 @@
 }
 
 .content-text p {
+  font-family: 'Avenir Next LT Pro', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 14px;
-  color: var(--color-secondary-main);
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
   line-height: 1.6;
   text-align: left;
   margin: 0;
 }
 
 /* Footer */
-.footer {
-  width: 100%;
-  margin-top: auto;
-}
-
-.footer-links {
-  width: 100%;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.footer-link {
-  color: var(--color-primary);
-  text-decoration: none;
-  font-size: 14px;
-  text-transform: uppercase;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.footer-copyright {
-  width: 100%;
-  text-align: center;
-  padding: 20px;
-  background-color: var(--color-primary);
-}
-
-.footer-copyright p {
-  color: var(--color-secondary-main);
-  font-size: 12px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.footer-logo {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
-}
-
-.logo-bar {
-  width: 8px;
-  height: 24px;
-
-  &.black {
-    background-color: var(--color-secondary-main);
-  }
-
-  &.red {
-    background-color: var(--color-accent);
-  }
+app-footer {
+  position: absolute;
+  top: 1050px;
+  left: calc((360px - 100vw) / 2);
+  width: 100vw;
+  display: block;
 }

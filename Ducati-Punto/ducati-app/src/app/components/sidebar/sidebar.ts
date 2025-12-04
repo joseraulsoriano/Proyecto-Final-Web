@@ -24,7 +24,13 @@ export class Sidebar {
     this.close();
   }
 
+  openExternalLink(url: string): void {
+    window.open(url, '_blank');
+    this.close();
+  }
+
   logout(): void {
+    sessionStorage.removeItem('isLoggedIn');
     this.router.navigate(['/login']);
     this.close();
   }

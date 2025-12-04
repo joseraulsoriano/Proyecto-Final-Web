@@ -1,71 +1,119 @@
-<div class="juego-container">
-  <header class="header">
+<div class="juego-container"
+     [class.game-over]="juegoTerminado && !juegoActivo"
+     [class.playing]="juegoActivo && !juegoTerminado">
+  <header class="header" *ngIf="!juegoActivo && !juegoTerminado">
     <button class="menu-button" (click)="toggleSidebar()" aria-label="Abrir menú">
-      <img src="/assets/menu-icon.svg" alt="Menú" class="menu-icon" />
+      <img src="/assets/Login/Home/menu-icon.svg" alt="Menú" class="menu-icon" />
     </button>
     <div class="header-content">
-      <span class="carrera">CARRERA</span>
-      <span class="divider">|</span>
-      <span class="ducati">DUCATI</span>
+      <img src="/assets/Login/logo-marcas.png" alt="CARRERA DUCATI" class="logo-marcas" />
     </div>
     <div class="header-spacer"></div>
   </header>
 
+  <!-- Barra gris después del header -->
+  <div class="gray-bar-header" *ngIf="!juegoActivo && !juegoTerminado"></div>
+
   <app-sidebar [isOpen]="sidebarOpen" [isLoggedIn]="true" (closeSidebar)="closeSidebar()"></app-sidebar>
 
-  <!-- Pantalla del juego -->
-  <div class="game-screen-container" *ngIf="!juegoTerminado">
-    <div class="game-screen" (click)="onGameScreenClick()">
-      <img 
-        src="/assets/juego-screen-1.png" 
-        alt="Moto Rider Game" 
-        class="game-image"
-      />
-      
-      <!-- UI del juego superpuesta -->
-      <div class="game-ui">
-        <!-- Indicadores superiores izquierda -->
-        <div class="ui-top-left">
-          <div class="ui-box">
-            <span class="ui-label">VELOCIDAD</span>
-            <span class="ui-value">{{ velocidad }}</span>
-          </div>
-          <div class="ui-box">
-            <span class="ui-label">PUNTAJE</span>
-            <span class="ui-value">{{ puntaje }}</span>
-          </div>
-          <div class="ui-box">
-            <span class="ui-label">PELIGRO</span>
-            <span class="ui-value">{{ peligro }}</span>
-          </div>
+  <!-- Pantalla de selección de lentes -->
+  <div *ngIf="!juegoActivo && !juegoTerminado" class="lentes-selection-screen">
+    <main class="content">
+      <!-- Sección NUEVO LOOK -->
+      <div class="nuevo-look-section">
+        <div class="title-section">
+          <img src="/assets/Login/Menu/titulo-icon.png" alt="" class="title-shape" />
+          <h1 class="title">NUEVO LOOK</h1>
+        </div>
+        <p class="nuevo-look-text">
+          ¿Quieres tener una idea de cómo verías si usarás unos increíbles Carrera Ducati?
+        </p>
+      </div>
+
+      <!-- Lista de lentes -->
+      <div class="lentes-list">
+        <!-- Lente 1 -->
+        <div class="lente-item lente-item-1">
+          <img 
+            src="/assets/Juego/lentes-ducati-1.png" 
+            srcset="/assets/Juego/lentes-ducati-1.png 1x, /assets/Juego/lentes-ducati-1@2x.png 2x"
+            alt="Carrera Ducati 001" 
+            class="lente-image" 
+          />
+          <p class="lente-code">CARDUC 001/S</p>
         </div>
 
-        <!-- Banner publicitario superior derecha -->
-        <div class="ui-banner">
-          <span class="banner-carrera">CARRERA</span>
-          <span class="banner-divider">|</span>
-          <span class="banner-ducati">DUCATI</span>
+        <!-- Lente 2 -->
+        <div class="lente-item lente-item-2">
+          <img 
+            src="/assets/Juego/lentes-ducati-2.png" 
+            srcset="/assets/Juego/lentes-ducati-2.png 1x, /assets/Juego/lentes-ducati-2@2x.png 2x"
+            alt="Carrera Ducati 002" 
+            class="lente-image" 
+          />
+          <p class="lente-code">CARDUC 002/S</p>
         </div>
 
-        <!-- Controles inferiores -->
-        <div class="game-controls">
-          <button class="control-button brake">FRENO</button>
-          <div class="accelerator-icon"></div>
+        <!-- Lente 3 -->
+        <div class="lente-item lente-item-3">
+          <img 
+            src="/assets/Juego/lentes-ducati-3.png" 
+            srcset="/assets/Juego/lentes-ducati-3.png 1x, /assets/Juego/lentes-ducati-3@2x.png 2x"
+            alt="Carrera Ducati 003" 
+            class="lente-image" 
+          />
+          <p class="lente-code">CARDUC 003/S</p>
         </div>
       </div>
+
+      <!-- Botones de acción -->
+      <div class="action-buttons">
+        <div class="action-button-wrapper">
+          <button class="action-button skip-button" (click)="omitir()">OMITIR</button>
+        </div>
+        <div class="action-button-wrapper">
+          <button class="action-button use-button" (click)="usarLentes()">USAR LENTES</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Banner rojo -->
+    <div class="license-banner">
+      <p>Ducati Motor Holding S.p.A. Official Licensed Product</p>
     </div>
   </div>
 
+  <!-- Pantalla del juego -->
+  <div *ngIf="juegoActivo && !juegoTerminado" class="game-screen-container" (click)="onGameScreenClick()">
+    <img 
+      src="/assets/Juego/juego-screen-1.png" 
+      alt="Moto Rider Game" 
+      class="game-image"
+    />
+  </div>
+
   <!-- Pantalla de juego terminado -->
-  <div class="game-over-screen" *ngIf="juegoTerminado">
-    <div class="game-over-content">
+  <div *ngIf="juegoTerminado && !juegoActivo" class="game-over-screen">
+    <header class="header">
+      <button class="menu-button" (click)="toggleSidebar()" aria-label="Abrir menú">
+        <img src="/assets/Login/Home/menu-icon.svg" alt="Menú" class="menu-icon" />
+      </button>
+      <div class="header-content">
+        <img src="/assets/Login/logo-marcas.png" alt="CARRERA DUCATI" class="logo-marcas" />
+      </div>
+      <div class="header-spacer"></div>
+    </header>
+
+    <div class="gray-bar-header"></div>
+
+    <main class="game-over-content">
       <!-- Título con línea roja -->
       <div class="title-section">
-        <img src="/assets/titulo-shape.svg" alt="" class="title-shape" />
-        <h2 class="game-over-title">¡EXCELENTE CARRERA!</h2>
+        <img src="/assets/Login/Menu/titulo-icon.png" alt="" class="title-shape" />
+        <h1 class="game-over-title">¡EXCELENTE CARRERA!</h1>
       </div>
 
-      <!-- Rectángulo rojo (placeholder para moto/icono) -->
+      <!-- Rectángulo rojo -->
       <div class="red-rectangle"></div>
 
       <!-- Puntos obtenidos -->
@@ -77,31 +125,17 @@
 
       <!-- Texto motivacional -->
       <div class="motivational-text">
-        <p>
+        <p class="motivational-text-content">
           Gracias por participar, acumula más puntos y gana una increíble <strong>Ducati Scrambler.</strong>
         </p>
       </div>
 
       <!-- Botón IR AL INICIO -->
       <div class="game-over-buttons">
-        <button class="action-button primary" (click)="volverAlMenu()">IR AL INICIO</button>
+        <button class="action-button primary narrow" (click)="volverAlInicio()">IR AL INICIO</button>
       </div>
-    </div>
+    </main>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-links">
-      <a routerLink="/politica-privacidad" class="footer-link">POLÍTICA DE PRIVACIDAD</a>
-      <a routerLink="/terminos-condiciones" class="footer-link">TÉRMINOS Y CONDICIONES</a>
-    </div>
-    <div class="footer-copyright">
-      <p>CARRERA EYEWEAR © 2022</p>
-      <div class="footer-logo">
-        <div class="logo-bar black"></div>
-        <div class="logo-bar red"></div>
-        <div class="logo-bar black"></div>
-      </div>
-    </div>
-  </footer>
+  <app-footer *ngIf="!juegoActivo || juegoTerminado"></app-footer>
 </div>

@@ -22,6 +22,7 @@ export class Login {
 
   onLogin(): void {
     if (this.email && this.password) {
+      sessionStorage.setItem('isLoggedIn', 'true');
       this.router.navigate(['/inicio']);
     }
   }

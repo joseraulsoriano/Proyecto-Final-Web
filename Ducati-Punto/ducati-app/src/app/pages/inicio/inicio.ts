@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Sidebar } from '../../components/sidebar/sidebar';
+import { Footer } from '../../components/footer/footer';
 
 @Component({
   selector: 'app-inicio',
-  imports: [RouterLink, CommonModule, Sidebar, FormsModule],
+  imports: [CommonModule, Sidebar, FormsModule, Footer],
   templateUrl: './inicio.html',
   styleUrl: './inicio.scss',
 })
